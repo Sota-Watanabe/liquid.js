@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Zharktas/liquid.js/issues"
   },
-  "homepage": "https://github.com/Zharktas/liquid.js"
+  "homepage": "https://github.com/Zharktas/liquid.js",
+  "dependencies": {
+    "vdom-serialize": "git+ssh://git@github.com/Zharktas/vdom-serialize.git"
+  }
 }
