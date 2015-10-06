@@ -15,8 +15,8 @@ var Liquid = function(options){
 
 };
 
-
 Liquid.prototype.vdom = {};
+
 Liquid.prototype.vdom.virtualize = function(){
     virtualizedState = virtualize(document.body);
 };
@@ -35,4 +35,11 @@ Liquid.prototype.vdom.transfer = function(){
         this.client.emit("sync", toSync);
 };
 
+
+Liquid.prototype.vdom.restore = function(){
+    if ( virtualizedState != null ) {
+        var patches = diff(initialState, virtualizedState);
+        patch(document.body, patches)
+    }
+}
 module.exports = Liquid;
