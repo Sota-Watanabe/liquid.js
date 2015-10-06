@@ -5,8 +5,13 @@ var Serializer = require('vdom-serialize');
 
 var virtualizedState = null;
 
-
 var Liquid = function(options){
+    this.options = options || {};
+    if (!this.options.transferMethod){
+        this.options.transferMethod = 'socket.io';
+        var io = require('socket.io-client');
+        this.client = io('http://localhost');
+    }
 
 };
 
@@ -25,7 +30,8 @@ Liquid.prototype.vdom.restore = function(){
 Liquid.prototype.vdom.transfer = function(){
     var patches = diff(initialState, virtualizedState);
     var toSync = Serializer.serialize(patches);
-    socket.emit("sync", toSync);
+    if (this.options.transferMethod = 'socket.io'){}
+        this.client.emit("sync", toSync);
 };
 
 module.exports = Liquid;
