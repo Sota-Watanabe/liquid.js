@@ -16,6 +16,7 @@ var Liquid = function(options){
 };
 
 
+Liquid.prototype.vdom = {};
 Liquid.prototype.vdom.virtualize = function(){
     virtualizedState = virtualize(document.body);
 };
