@@ -4,6 +4,8 @@ var diff = require('virtual-dom/diff');
 var Serializer = require('vdom-serialize');
 
 var virtualizedState = null;
+var initialState = null;
+
 
 var Liquid = function(options){
     this.options = options || {};
@@ -13,6 +15,7 @@ var Liquid = function(options){
         this.client = io('http://localhost');
     }
 
+    initialState = virtualize(document.body);
 };
 
 Liquid.prototype.vdom = {};
