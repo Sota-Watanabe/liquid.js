@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Zharktas/liquid.js",
   "dependencies": {
-    "vdom-serialize": "git+ssh://git@github.com/Zharktas/vdom-serialize.git"
+    "vdom-serialize": "git+ssh://git@github.com/Zharktas/vdom-serialize.git",
+    "vdom-virtualize": "^1.0.0"
   }
 }
