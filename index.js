@@ -34,7 +34,7 @@ Liquid.prototype.vdom.restore = function(){
 Liquid.prototype.vdom.transfer = function(){
     var patches = diff(initialState, virtualizedState);
     var toSync = Serializer.serialize(patches);
-    if (this.options.transferMethod = 'socket.io'){}
+    if (this.options.transferMethod == 'socket.io'){}
         this.client.emit("sync", toSync);
 };
 
@@ -44,5 +44,6 @@ Liquid.prototype.vdom.restore = function(){
         var patches = diff(initialState, virtualizedState);
         patch(document.body, patches)
     }
-}
+};
+
 module.exports = Liquid;
