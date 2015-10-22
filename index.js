@@ -14,7 +14,9 @@ var Liquid = function(options){
 
     if (vdom.options.transferMethod == 'socket.io'){
         vdom.client.on('list', function(data){
-            console.log(data);
+            if ( this.options.createUI == true ){
+                addClientsToUI(data)
+            }
         });
     }
 
@@ -33,6 +35,7 @@ var CreateUIElements = function(){
     syncButton.textContent = 'Sync to All';
 
     var clientList = document.createElement('select');
+    clientList.id = 'client-list';
     clientList.onclick = getList;
 
 
@@ -52,5 +55,19 @@ var getList = function(){
     }
 };
 
+var addClientsToUI = function(list){
+    var select = document.querySelector('#client-list');
+
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+
+    list.forEach(function(id){
+        var option = document.createElement('option');
+        option.value = id;
+        option.textContent = id;
+        select.appendChild(option);
+    })
+};
 
 module.exports = Liquid;
