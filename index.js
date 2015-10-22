@@ -14,7 +14,7 @@ var Liquid = function(options){
 
     if (vdom.options.transferMethod == 'socket.io'){
         vdom.client.on('list', function(data){
-            if ( this.options.createUI == true ){
+            if ( vdom.options.createUI == true ){
                 addClientsToUI(data)
             }
         });
