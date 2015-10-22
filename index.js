@@ -12,7 +12,7 @@ var Liquid = function(options){
         CreateUIElements();
     }
 
-    if (vdom.transferMethod == 'socket.io'){
+    if (vdom.options.transferMethod == 'socket.io'){
         vdom.client.on('list', function(data){
             console.log(data);
         });
