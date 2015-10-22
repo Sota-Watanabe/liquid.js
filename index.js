@@ -39,9 +39,18 @@ var CreateUIElements = function(){
     clientList.id = 'client-list';
     clientList.onclick = getList;
 
+    var defaultOption = document.createElement('option');
+    defaultOption.textContent = "Click to fetch clients";
+    defaultOption.disabled = 'disabled';
+    clientList.appendChild(defaultOption);
+
+    var syncToClient = document.createElement('button');
+    syncToClient.onclick = syncToClient;
+    syncToClient.textContent = "Sync to Client";
 
     container.appendChild(syncButton);
     container.appendChild(clientList);
+    container.appendChild(syncToClient);
     document.body.appendChild(container);
 };
 
@@ -69,6 +78,14 @@ var addClientsToUI = function(list){
         option.textContent = id;
         select.appendChild(option);
     })
+};
+
+var syncToClient = function(){
+    var select = document.querySelector('#client-list');
+    if ( select.value != "" ){
+        vdom.virtualize();
+        vdom.transferToClient(select.value);
+    }
 };
 
 module.exports = Liquid;
