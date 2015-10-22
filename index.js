@@ -50,7 +50,7 @@ var CreateUIElements = function(){
 
     container.appendChild(syncButton);
     container.appendChild(clientList);
-    container.appendChild(syncToClient);
+    container.appendChild(syncToClientButton);
     document.body.appendChild(container);
 };
 
