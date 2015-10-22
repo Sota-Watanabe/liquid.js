@@ -1,9 +1,10 @@
 var VDom = require('./lib/VDom.js');
 
 var vdom;
+var opts;
 
 var Liquid = function(options){
-    this.options = options || {};
+    this.options = opts =  options || {};
     this.options.vdom = this.options.vdom || {};
     this.vdom = vdom = new VDom(this.options.vdom);
 
@@ -14,7 +15,7 @@ var Liquid = function(options){
 
     if (vdom.options.transferMethod == 'socket.io'){
         vdom.client.on('list', function(data){
-            if ( vdom.options.createUI == true ){
+            if ( opts.createUI == true ){
                 addClientsToUI(data)
             }
         });
