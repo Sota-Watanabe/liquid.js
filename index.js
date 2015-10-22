@@ -44,9 +44,9 @@ var CreateUIElements = function(){
     defaultOption.disabled = 'disabled';
     clientList.appendChild(defaultOption);
 
-    var syncToClient = document.createElement('button');
-    syncToClient.onclick = syncToClient;
-    syncToClient.textContent = "Sync to Client";
+    var syncToClientButton = document.createElement('button');
+    syncToClientButton.onclick = syncToClient;
+    syncToClientButton.textContent = "Sync to Client";
 
     container.appendChild(syncButton);
     container.appendChild(clientList);
