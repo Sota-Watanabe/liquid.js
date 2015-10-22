@@ -16,15 +16,22 @@ var Liquid = function(options){
 
 
 var CreateUIElements = function(){
-    var syncButton = document.createElement('button');
-    syncButton.classList.add('Liquid-ui');
-    syncButton.onclick = sync;
 
-    document.body.appendChild(syncButton)
+    var container = document.createElement('div');
+    container.style.position = 'absolute';
+    container.style.bottom = 0;
+    container.style.left = 0;
+
+    var syncButton = document.createElement('button');
+    syncButton.onclick = sync;
+    syncButton.textContent = 'Sync';
+
+    container.appendChild(syncButton);
+    document.body.appendChild(container);
 };
 
 var sync = function(){
-    vdom.virtualize()
+    vdom.virtualize();
     vdom.transfer();
 };
 
