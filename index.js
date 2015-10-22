@@ -47,7 +47,7 @@ var sync = function(){
 };
 
 var getList = function(){
-    if (vdom.transferMethod == 'socket.io'){
+    if (vdom.options.transferMethod == 'socket.io'){
         vdom.client.emit('getList');
     }
 };
