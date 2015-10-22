@@ -1,10 +1,11 @@
 var VDom = require('./lib/VDom.js');
 
+var vdom;
 
 var Liquid = function(options){
     this.options = options || {};
     this.options.vdom = this.options.vdom || {};
-    this.vdom = new VDom(this.options.vdom);
+    this.vdom = vdom = new VDom(this.options.vdom);
 
     this.options.createUI = this.options.createUI || true;
     if ( this.options.createUI == true ){
@@ -23,8 +24,8 @@ var CreateUIElements = function(){
 };
 
 var sync = function(){
-    this.vdom.virtualize()
-    this.vdom.transfer();
+    vdom.virtualize()
+    vdom.transfer();
 };
 
 module.exports = Liquid;
