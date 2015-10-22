@@ -12,6 +12,12 @@ var Liquid = function(options){
         CreateUIElements();
     }
 
+    if (vdom.transferMethod == 'socket.io'){
+        vdom.client.on('list', function(data){
+            console.log(data);
+        });
+    }
+
 };
 
 
@@ -24,9 +30,14 @@ var CreateUIElements = function(){
 
     var syncButton = document.createElement('button');
     syncButton.onclick = sync;
-    syncButton.textContent = 'Sync';
+    syncButton.textContent = 'Sync to All';
+
+    var clientList = document.createElement('select');
+    clientList.onclick = getList;
+
 
     container.appendChild(syncButton);
+    container.appendChild(clientList);
     document.body.appendChild(container);
 };
 
@@ -34,5 +45,12 @@ var sync = function(){
     vdom.virtualize();
     vdom.transfer();
 };
+
+var getList = function(){
+    if (vdom.transferMethod == 'socket.io'){
+        vdom.client.emit('getList');
+    }
+};
+
 
 module.exports = Liquid;
