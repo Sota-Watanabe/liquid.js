@@ -30,6 +30,7 @@ var CreateUIElements = function(){
     container.style.position = 'absolute';
     container.style.bottom = 0;
     container.style.left = 0;
+    container.style.zIndex  = 10000;
 
     var syncButton = document.createElement('button');
     syncButton.onclick = sync;
@@ -37,7 +38,7 @@ var CreateUIElements = function(){
 
     var clientList = document.createElement('select');
     clientList.id = 'client-list';
-    clientList.onclick = getList;
+    clientList.oninput = getList;
 
     var defaultOption = document.createElement('option');
     defaultOption.textContent = "Click to fetch clients";
