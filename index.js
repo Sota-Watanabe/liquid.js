@@ -12,7 +12,7 @@ var Liquid = function(options){
     }
 
     this.options.vdom = this.options.vdom || {};
-    this.vdom = vdom = new VDom(this.options.vdom);
+    this.vdom = vdom = new VDom(this.options.vdom, opts);
 
     if (vdom.options.transferMethod == 'socket.io'){
         vdom.client.on('list', function(data){
@@ -28,6 +28,7 @@ var Liquid = function(options){
 var CreateUIElements = function(){
 
     var container = document.createElement('div');
+    container.id = 'Liquid-ui';
     container.style.position = 'absolute';
     container.style.bottom = 0;
     container.style.left = 0;
@@ -57,8 +58,17 @@ var CreateUIElements = function(){
 };
 
 var sync = function(){
+    if ( opts.createUI == true ) {
+        var stashUiElements = document.getElementById('Liquid-ui');
+        document.body.removeChild(stashUiElements);
+    }
+
     vdom.virtualize();
     vdom.transfer();
+
+    if ( opts.createUI == true ) {
+        document.body.appendChild(stashUiElements);
+    }
 };
 
 var getList = function(){
