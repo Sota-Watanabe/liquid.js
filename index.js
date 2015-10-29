@@ -5,13 +5,14 @@ var opts;
 
 var Liquid = function(options){
     this.options = opts =  options || {};
-    this.options.vdom = this.options.vdom || {};
-    this.vdom = vdom = new VDom(this.options.vdom);
 
     this.options.createUI = this.options.createUI || true;
     if ( this.options.createUI == true ){
         CreateUIElements();
     }
+
+    this.options.vdom = this.options.vdom || {};
+    this.vdom = vdom = new VDom(this.options.vdom);
 
     if (vdom.options.transferMethod == 'socket.io'){
         vdom.client.on('list', function(data){
