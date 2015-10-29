@@ -10,7 +10,7 @@ var Liquid = function(options){
     this.options.ui = this.options.ui || {};
 
     this.options.vdom = this.options.vdom || {};
-    this.vdom = vdom = new VDom(this.options.vdom);
+    this.vdom = vdom = new VDom(this.options.vdom, this.options.ui);
 
     this.ui = ui = new UI(this.options.ui, vdom);
 
