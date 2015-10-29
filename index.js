@@ -38,7 +38,7 @@ var CreateUIElements = function(){
 
     var clientList = document.createElement('select');
     clientList.id = 'client-list';
-    clientList.oninput = getList;
+    clientList.onfocus = getList;
 
     var defaultOption = document.createElement('option');
     defaultOption.textContent = "Click to fetch clients";
