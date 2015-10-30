@@ -1,9 +1,13 @@
 var VDom = require('./lib/VDom.js');
 var UI = require('./lib/UI.js');
+var Variable = require('./lib/Variable.js');
+
 
 var vdom;
 var opts;
 var ui;
+
+var variable = new Variable();
 
 var Liquid = function(options){
     this.options = opts =  options || {};
@@ -30,6 +34,6 @@ var Liquid = function(options){
 };
 
 
-
+Liquid.prototype.registerHandler = variable.registerHandler;
 
 module.exports = Liquid;
