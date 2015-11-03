@@ -19,7 +19,7 @@ var Liquid = function(options){
     this.ui = ui = new UI(this.options.ui, vdom);
 
     vdom.setUi(ui);
-    vdom.setVariable(varible);
+    vdom.setVariable(variable);
 
     ui.CreateUIElements();
 
